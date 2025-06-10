@@ -15,7 +15,7 @@ composer require mrpunyapal/laravel-auth-jobs
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-auth-jobs-config"
+php artisan vendor:publish --tag="auth-jobs-config"
 ```
 
 This is the contents of the published config file:
