@@ -18,13 +18,14 @@ it('logins the user in the job', function (): void {
 
     $middleware = new AuthenticateJob;
 
-    $job = new class {
+    $job = new class
+    {
         public function handle(): bool
         {
             return true;
         }
     };
-    $next = (fn($job) => $job->handle());
+    $next = (fn ($job) => $job->handle());
 
     $middleware->handle($job, $next);
 });
@@ -38,13 +39,14 @@ it('does not login the user in the job', function (): void {
 
     $middleware = new AuthenticateJob;
 
-    $job = new class {
+    $job = new class
+    {
         public function handle(): bool
         {
             return true;
         }
     };
-    $next = (fn($job) => $job->handle());
+    $next = (fn ($job) => $job->handle());
 
     $middleware->handle($job, $next);
 });

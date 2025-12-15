@@ -1,7 +1,7 @@
 <?php
 
-use MrPunyapal\LaravelAuthJobs\Http\Middleware\AuthenticateJobs;
 use Illuminate\Routing\Router;
+use MrPunyapal\LaravelAuthJobs\Http\Middleware\AuthenticateJobs;
 use MrPunyapal\LaravelAuthJobs\LaravelAuthJobsServiceProvider;
 
 it('adds middleware to configured groups', function (): void {
