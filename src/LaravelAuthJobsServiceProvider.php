@@ -21,7 +21,7 @@ class LaravelAuthJobsServiceProvider extends PackageServiceProvider
             ->hasConfigFile();
     }
 
-    public function bootingPackage()
+    public function bootingPackage(): void
     {
         $router = $this->app->make(Router::class);
 
