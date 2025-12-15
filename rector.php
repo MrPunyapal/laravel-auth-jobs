@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
+use RectorPest\Set\PestSetList;
 
 return RectorConfig::configure()
     ->withPaths([
@@ -17,5 +18,8 @@ return RectorConfig::configure()
         privatization: true,
         earlyReturn: true,
     )
+    ->withSets([
+        PestSetList::PEST_CODE_QUALITY,
+    ])
     ->withPhpSets()
     ->withImportNames();
