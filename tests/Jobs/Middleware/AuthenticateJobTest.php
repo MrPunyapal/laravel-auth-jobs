@@ -2,7 +2,7 @@
 
 use MrPunyapal\LaravelAuthJobs\Jobs\Middleware\AuthenticateJob;
 
-it('logins the user in the job', function () {
+it('logins the user in the job', function (): void {
     Context::addHidden('laravel_auth_jobs_auth_id', 1);
     Context::addHidden('laravel_auth_jobs_auth_guard', 'web');
 
@@ -18,20 +18,19 @@ it('logins the user in the job', function () {
 
     $middleware = new AuthenticateJob;
 
-    $job = new class {
-        public function handle()
+    $job = new class
+    {
+        public function handle(): bool
         {
             return true;
         }
     };
-    $next = function ($job) {
-        return $job->handle();
-    };
+    $next = (fn ($job) => $job->handle());
 
     $middleware->handle($job, $next);
 });
 
-it('does not login the user in the job', function () {
+it('does not login the user in the job', function (): void {
     Context::addHidden('laravel_auth_jobs_auth_id', null);
     Context::addHidden('laravel_auth_jobs_auth_guard', null);
 
@@ -40,15 +39,14 @@ it('does not login the user in the job', function () {
 
     $middleware = new AuthenticateJob;
 
-    $job = new class {
-        public function handle()
+    $job = new class
+    {
+        public function handle(): bool
         {
             return true;
         }
     };
-    $next = function ($job) {
-        return $job->handle();
-    };
+    $next = (fn ($job) => $job->handle());
 
     $middleware->handle($job, $next);
 });
