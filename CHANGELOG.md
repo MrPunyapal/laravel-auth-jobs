@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-auth-jobs` will be documented in this file.
 
+## 1.1.1 - 2025-12-15
+
+### What's Changed
+
+* Feat: add rector by @MrPunyapal in https://github.com/MrPunyapal/laravel-auth-jobs/pull/3
+* Feat: add rector pest by @MrPunyapal in https://github.com/MrPunyapal/laravel-auth-jobs/pull/4
+
+**Full Changelog**: https://github.com/MrPunyapal/laravel-auth-jobs/compare/1.1.0...1.1.1
+
 ## 1.1.0 -  PHP 8.5 - 2025-12-07
 
 ### What's Changed
