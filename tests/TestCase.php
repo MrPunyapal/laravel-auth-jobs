@@ -4,22 +4,15 @@ declare(strict_types=1);
 
 namespace MrPunyapal\LaravelAuthJobs\Tests;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use MrPunyapal\LaravelAuthJobs\LaravelAuthJobsServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        Factory::guessFactoryNamesUsing(
-            fn (string $modelName): string => 'MrPunyapal\\LaravelAuthJobs\\Database\\Factories\\'.class_basename($modelName).'Factory'
-        );
-    }
-
-    protected function getPackageProviders($app)
+    /**
+     * @return array<int, class-string>
+     */
+    protected function getPackageProviders($app): array
     {
         return [
             LaravelAuthJobsServiceProvider::class,
