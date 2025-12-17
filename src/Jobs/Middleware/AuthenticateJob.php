@@ -21,7 +21,7 @@ readonly class AuthenticateJob
         $guard = Context::getHidden(ContextKeys::AUTH_GUARD);
         $id = Context::getHidden(ContextKeys::AUTH_ID);
 
-        if (is_null($guard) || is_null($id)) {
+        if (! is_string($guard) || is_null($id)) {
             $next($job);
 
             return;
