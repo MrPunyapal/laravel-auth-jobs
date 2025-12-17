@@ -57,7 +57,7 @@ class ExampleJob implements ShouldQueue
      */
     public function middleware(): array
     {
-        return [app(AuthenticateJob::class)];
+        return [new AuthenticateJob];
     }
 
     public function handle()
