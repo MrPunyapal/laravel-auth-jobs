@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MrPunyapal\LaravelAuthJobs;
 
 use Illuminate\Routing\Router;
@@ -23,9 +25,13 @@ class LaravelAuthJobsServiceProvider extends PackageServiceProvider
 
     public function bootingPackage(): void
     {
+        /** @var Router $router */
         $router = $this->app->make(Router::class);
 
-        foreach ($this->app['config']->get('auth-jobs.middleware_groups') as $group) {
+        /** @var array<int, string> $middlewareGroups */
+        $middlewareGroups = config('auth-jobs.middleware_groups', []);
+
+        foreach ($middlewareGroups as $group) {
             $router->pushMiddlewareToGroup(
                 $group,
                 AuthenticateJobs::class

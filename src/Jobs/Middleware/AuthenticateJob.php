@@ -1,12 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MrPunyapal\LaravelAuthJobs\Jobs\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Context;
+use MrPunyapal\LaravelAuthJobs\ContextKeys;
 
-class AuthenticateJob
+readonly class AuthenticateJob
 {
     /**
      * Process the queued job.
@@ -15,10 +18,10 @@ class AuthenticateJob
      */
     public function handle(object $job, Closure $next): void
     {
-        $guard = Context::getHidden('laravel_auth_jobs_auth_guard');
-        $id = Context::getHidden('laravel_auth_jobs_auth_id');
+        $guard = Context::getHidden(ContextKeys::AuthGuard->value);
+        $id = Context::getHidden(ContextKeys::AuthId->value);
 
-        if (is_null($guard) || is_null($id)) {
+        if (! is_string($guard) || is_null($id)) {
             $next($job);
 
             return;
