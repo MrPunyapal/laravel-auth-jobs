@@ -11,10 +11,6 @@ use MrPunyapal\LaravelAuthJobs\Contracts\HasContextKeys;
 
 readonly class AuthenticateJob
 {
-    public function __construct(
-        private HasContextKeys $contextKeys
-    ) {}
-
     /**
      * Process the queued job.
      *
@@ -22,8 +18,10 @@ readonly class AuthenticateJob
      */
     public function handle(object $job, Closure $next): void
     {
-        $guard = Context::getHidden($this->contextKeys::authGuardKey());
-        $id = Context::getHidden($this->contextKeys::authIdKey());
+        $contextKeys = resolve(HasContextKeys::class);
+
+        $guard = Context::getHidden($contextKeys::authGuardKey());
+        $id = Context::getHidden($contextKeys::authIdKey());
 
         if (! is_string($guard) || is_null($id)) {
             $next($job);

@@ -13,10 +13,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 readonly class AuthenticateJobs
 {
-    public function __construct(
-        private HasContextKeys $contextKeys
-    ) {}
-
     /**
      * Handle an incoming request.
      *
@@ -25,8 +21,10 @@ readonly class AuthenticateJobs
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check()) {
-            Context::addHidden($this->contextKeys::authIdKey(), Auth::id());
-            Context::addHidden($this->contextKeys::authGuardKey(), Auth::getDefaultDriver());
+            $contextKeys = resolve(HasContextKeys::class);
+
+            Context::addHidden($contextKeys::authIdKey(), Auth::id());
+            Context::addHidden($contextKeys::authGuardKey(), Auth::getDefaultDriver());
         }
 
         return $next($request);
