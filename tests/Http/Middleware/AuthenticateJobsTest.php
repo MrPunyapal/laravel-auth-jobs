@@ -8,7 +8,7 @@ use MrPunyapal\LaravelAuthJobs\ContextKeys;
 use MrPunyapal\LaravelAuthJobs\Http\Middleware\AuthenticateJobs;
 
 it('adds auth_id and auth guard into context', function (): void {
-    $middleware = new AuthenticateJobs(new ContextKeys);
+    $middleware = new AuthenticateJobs;
 
     $request = Request::create('/');
 
@@ -31,7 +31,7 @@ it('adds auth_id and auth guard into context', function (): void {
 });
 
 it('does not add auth_id and auth guard into context', function (): void {
-    $middleware = new AuthenticateJobs(new ContextKeys);
+    $middleware = new AuthenticateJobs;
 
     $request = Request::create('/');
 

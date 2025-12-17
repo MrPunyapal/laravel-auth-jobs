@@ -19,7 +19,7 @@ it('logins the user in the job', function (): void {
         ->with(1)
         ->andReturn(true);
 
-    $middleware = new AuthenticateJob(new ContextKeys);
+    $middleware = new AuthenticateJob;
 
     $job = new class
     {
@@ -40,7 +40,7 @@ it('does not login the user in the job', function (): void {
     Auth::shouldReceive('guard')->never();
     Auth::shouldReceive('onceUsingId')->never();
 
-    $middleware = new AuthenticateJob(new ContextKeys);
+    $middleware = new AuthenticateJob;
 
     $job = new class
     {
