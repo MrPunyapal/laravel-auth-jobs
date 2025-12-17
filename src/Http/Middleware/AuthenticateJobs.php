@@ -8,12 +8,14 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Context;
-use MrPunyapal\LaravelAuthJobs\Concerns\ResolvesContextKeys;
+use MrPunyapal\LaravelAuthJobs\Contracts\ContextKeysInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 readonly class AuthenticateJobs
 {
-    use ResolvesContextKeys;
+    public function __construct(
+        private ContextKeysInterface $contextKeys
+    ) {}
 
     /**
      * Handle an incoming request.
@@ -23,10 +25,8 @@ readonly class AuthenticateJobs
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check()) {
-            $contextKeys = $this->contextKeys();
-
-            Context::addHidden($contextKeys::authIdKey(), Auth::id());
-            Context::addHidden($contextKeys::authGuardKey(), Auth::getDefaultDriver());
+            Context::addHidden($this->contextKeys::authIdKey(), Auth::id());
+            Context::addHidden($this->contextKeys::authGuardKey(), Auth::getDefaultDriver());
         }
 
         return $next($request);

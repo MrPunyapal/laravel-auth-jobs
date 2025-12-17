@@ -6,19 +6,15 @@ namespace MrPunyapal\LaravelAuthJobs;
 
 use MrPunyapal\LaravelAuthJobs\Contracts\ContextKeysInterface;
 
-enum ContextKeys: string implements ContextKeysInterface
+final class ContextKeys implements ContextKeysInterface
 {
-    case AuthId = 'laravel_auth_jobs_auth_id';
-
-    case AuthGuard = 'laravel_auth_jobs_auth_guard';
-
     public static function authIdKey(): string
     {
-        return self::AuthId->value;
+        return 'laravel_auth_jobs_auth_id';
     }
 
     public static function authGuardKey(): string
     {
-        return self::AuthGuard->value;
+        return 'laravel_auth_jobs_auth_guard';
     }
 }
