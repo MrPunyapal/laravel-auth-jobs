@@ -6,8 +6,8 @@ use MrPunyapal\LaravelAuthJobs\ContextKeys;
 use MrPunyapal\LaravelAuthJobs\Jobs\Middleware\AuthenticateJob;
 
 it('logins the user in the job', function (): void {
-    Context::addHidden(ContextKeys::AUTH_ID, 1);
-    Context::addHidden(ContextKeys::AUTH_GUARD, 'web');
+    Context::addHidden(ContextKeys::AuthId->value, 1);
+    Context::addHidden(ContextKeys::AuthGuard->value, 'web');
 
     Auth::shouldReceive('guard')
         ->once()
@@ -34,8 +34,8 @@ it('logins the user in the job', function (): void {
 });
 
 it('does not login the user in the job', function (): void {
-    Context::addHidden(ContextKeys::AUTH_ID, null);
-    Context::addHidden(ContextKeys::AUTH_GUARD, null);
+    Context::addHidden(ContextKeys::AuthId->value, null);
+    Context::addHidden(ContextKeys::AuthGuard->value, null);
 
     Auth::shouldReceive('guard')->never();
     Auth::shouldReceive('onceUsingId')->never();

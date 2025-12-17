@@ -21,8 +21,8 @@ readonly class AuthenticateJobs
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check()) {
-            Context::addHidden(ContextKeys::AUTH_ID, Auth::id());
-            Context::addHidden(ContextKeys::AUTH_GUARD, Auth::getDefaultDriver());
+            Context::addHidden(ContextKeys::AuthId->value, Auth::id());
+            Context::addHidden(ContextKeys::AuthGuard->value, Auth::getDefaultDriver());
         }
 
         return $next($request);

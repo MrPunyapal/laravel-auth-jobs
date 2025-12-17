@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace MrPunyapal\LaravelAuthJobs;
 
-final readonly class ContextKeys
+enum ContextKeys: string
 {
-    public const string AUTH_ID = 'laravel_auth_jobs_auth_id';
+    case AuthId = 'laravel_auth_jobs_auth_id';
 
-    public const string AUTH_GUARD = 'laravel_auth_jobs_auth_guard';
+    case AuthGuard = 'laravel_auth_jobs_auth_guard';
 }
