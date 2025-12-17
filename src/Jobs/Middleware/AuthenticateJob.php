@@ -7,12 +7,12 @@ namespace MrPunyapal\LaravelAuthJobs\Jobs\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Context;
-use MrPunyapal\LaravelAuthJobs\Contracts\ContextKeysInterface;
+use MrPunyapal\LaravelAuthJobs\Contracts\ContextKeys as ContextKeysContract;
 
 readonly class AuthenticateJob
 {
     public function __construct(
-        private ContextKeysInterface $contextKeys
+        private ContextKeysContract $contextKeys
     ) {}
 
     /**

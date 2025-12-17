@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace MrPunyapal\LaravelAuthJobs;
 
 use Illuminate\Routing\Router;
-use MrPunyapal\LaravelAuthJobs\Contracts\ContextKeysInterface;
+use MrPunyapal\LaravelAuthJobs\Contracts\ContextKeys as ContextKeysContract;
 use MrPunyapal\LaravelAuthJobs\Http\Middleware\AuthenticateJobs;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -26,8 +26,8 @@ class LaravelAuthJobsServiceProvider extends PackageServiceProvider
 
     public function registeringPackage(): void
     {
-        $this->app->bind(ContextKeysInterface::class, function () {
-            /** @var class-string<ContextKeysInterface> $class */
+        $this->app->bind(ContextKeysContract::class, function () {
+            /** @var class-string<ContextKeysContract> $class */
             $class = config('auth-jobs.context_keys', ContextKeys::class);
 
             return new $class;

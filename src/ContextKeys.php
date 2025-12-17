@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace MrPunyapal\LaravelAuthJobs;
 
-use MrPunyapal\LaravelAuthJobs\Contracts\ContextKeysInterface;
+use MrPunyapal\LaravelAuthJobs\Contracts\ContextKeys as ContextKeysContract;
 
-final class ContextKeys implements ContextKeysInterface
+final class ContextKeys implements ContextKeysContract
 {
     public static function authIdKey(): string
     {

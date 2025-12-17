@@ -8,13 +8,13 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Context;
-use MrPunyapal\LaravelAuthJobs\Contracts\ContextKeysInterface;
+use MrPunyapal\LaravelAuthJobs\Contracts\ContextKeys as ContextKeysContract;
 use Symfony\Component\HttpFoundation\Response;
 
 readonly class AuthenticateJobs
 {
     public function __construct(
-        private ContextKeysInterface $contextKeys
+        private ContextKeysContract $contextKeys
     ) {}
 
     /**

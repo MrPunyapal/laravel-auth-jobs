@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace MrPunyapal\LaravelAuthJobs\Contracts;
 
-interface ContextKeysInterface
+interface ContextKeys
 {
     /**
      * Get the context key for storing the authenticated user's ID.
