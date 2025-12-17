@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use MrPunyapal\LaravelAuthJobs\Jobs\Middleware\AuthenticateJob;
 
 it('logins the user in the job', function (): void {
