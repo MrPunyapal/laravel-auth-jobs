@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Context;
 use MrPunyapal\LaravelAuthJobs\ContextKeys;
 
-class AuthenticateJob
+readonly class AuthenticateJob
 {
     /**
      * Process the queued job.

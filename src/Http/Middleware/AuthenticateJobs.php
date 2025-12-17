@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Context;
 use MrPunyapal\LaravelAuthJobs\ContextKeys;
 use Symfony\Component\HttpFoundation\Response;
 
-class AuthenticateJobs
+readonly class AuthenticateJobs
 {
     /**
      * Handle an incoming request.
