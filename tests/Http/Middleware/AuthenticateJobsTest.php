@@ -26,8 +26,8 @@ it('adds auth_id and auth guard into context', function (): void {
 
     $middleware->handle($request, fn () => response()->json(['message' => 'ok']));
 
-    expect(Context::getHidden(ContextKeys::AuthId->value))->toBe(1)
-        ->and(Context::getHidden(ContextKeys::AuthGuard->value))->toBe('web');
+    expect(Context::getHidden(ContextKeys::authIdKey()))->toBe(1)
+        ->and(Context::getHidden(ContextKeys::authGuardKey()))->toBe('web');
 });
 
 it('does not add auth_id and auth guard into context', function (): void {
@@ -41,6 +41,6 @@ it('does not add auth_id and auth guard into context', function (): void {
 
     $middleware->handle($request, fn () => response()->json(['message' => 'ok']));
 
-    expect(Context::getHidden(ContextKeys::AuthId->value))->toBeNull()
-        ->and(Context::getHidden(ContextKeys::AuthGuard->value))->toBeNull();
+    expect(Context::getHidden(ContextKeys::authIdKey()))->toBeNull()
+        ->and(Context::getHidden(ContextKeys::authGuardKey()))->toBeNull();
 });

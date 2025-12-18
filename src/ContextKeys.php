@@ -4,9 +4,17 @@ declare(strict_types=1);
 
 namespace MrPunyapal\LaravelAuthJobs;
 
-enum ContextKeys: string
-{
-    case AuthId = 'laravel_auth_jobs_auth_id';
+use MrPunyapal\LaravelAuthJobs\Contracts\HasContextKeys;
 
-    case AuthGuard = 'laravel_auth_jobs_auth_guard';
+final class ContextKeys implements HasContextKeys
+{
+    public static function authIdKey(): string
+    {
+        return 'laravel_auth_jobs_auth_id';
+    }
+
+    public static function authGuardKey(): string
+    {
+        return 'laravel_auth_jobs_auth_guard';
+    }
 }

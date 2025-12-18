@@ -22,11 +22,15 @@ This is the contents of the published config file:
 
 ```php
 return [
-   // the middleware groups that are dispatching the jobs which need authentication
+    // the middleware groups that are dispatching the jobs which need authentication
     'middleware_groups' => [
         'web',
         // 'api',
     ],
+
+    // the class that provides context keys for storing auth data
+    // must implement MrPunyapal\LaravelAuthJobs\Contracts\HasContextKeys
+    'context_keys' => \MrPunyapal\LaravelAuthJobs\ContextKeys::class,
 ];
 ```
 
@@ -68,6 +72,46 @@ class ExampleJob implements ShouldQueue
 
 ```
 
+## Customizing Context Keys
+
+If you need to use custom context keys (e.g., to avoid conflicts with other packages), you can create your own class implementing `HasContextKeys`:
+
+```php
+<?php
+
+namespace App\Auth;
+
+use MrPunyapal\LaravelAuthJobs\Contracts\HasContextKeys;
+
+final class CustomContextKeys implements HasContextKeys
+{
+    public static function authIdKey(): string
+    {
+        return 'my_app_auth_user_id';
+    }
+
+    public static function authGuardKey(): string
+    {
+        return 'my_app_auth_guard';
+    }
+}
+```
+
+Then update your config:
+
+```php
+// config/auth-jobs.php
+'context_keys' => \App\Auth\CustomContextKeys::class,
+```
+
+Alternatively, you can bind your implementation directly in a service provider:
+
+```php
+use MrPunyapal\LaravelAuthJobs\Contracts\HasContextKeys;
+use App\Auth\CustomContextKeys;
+
+$this->app->bind(HasContextKeys::class, CustomContextKeys::class);
+```
 
 ## Use Cases
 
