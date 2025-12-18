@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-auth-jobs` will be documented in this file.
 
+## 1.2.0 - 2025-12-18
+
+### What's Changed
+
+* Refactor by @MrPunyapal in https://github.com/MrPunyapal/laravel-auth-jobs/pull/6
+* feat: Add configurable context keys by @MrPunyapal in https://github.com/MrPunyapal/laravel-auth-jobs/pull/7
+
+**Full Changelog**: https://github.com/MrPunyapal/laravel-auth-jobs/compare/1.1.1...1.2.0
+
 ## 1.1.1 - 2025-12-15
 
 ### What's Changed
