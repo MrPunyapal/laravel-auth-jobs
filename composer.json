@@ -25,14 +25,14 @@
     "require": {
         "php": "^8.2||^8.3||^8.4||^8.5",
         "spatie/laravel-package-tools": "^1.16",
-        "illuminate/contracts": "^11.0||^12.0"
+        "illuminate/contracts": "^11.0||^12.0||^13.0"
     },
     "require-dev": {
         "larastan/larastan": "^2.9||^3.0",
         "laravel/pint": "^1.14",
         "mrpunyapal/rector-pest": "^0.1.0",
         "nunomaduro/collision": "^8.1.1||^7.10.0",
-        "orchestra/testbench": "^10.0.0||^9.0.0",
+        "orchestra/testbench": "^11.0.0||^10.0.0||^9.0.0",
         "pestphp/pest": "^3.0||^4.0",
         "pestphp/pest-plugin-arch": "^3.0||^4.0",
         "pestphp/pest-plugin-laravel": "^3.0||^4.0",
