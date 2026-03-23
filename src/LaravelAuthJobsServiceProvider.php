@@ -26,7 +26,7 @@ class LaravelAuthJobsServiceProvider extends PackageServiceProvider
 
     public function registeringPackage(): void
     {
-        $this->app->bind(HasContextKeys::class, function () {
+        $this->app->bind(HasContextKeys::class, function (): object {
             /** @var class-string<HasContextKeys> $class */
             $class = config('auth-jobs.context_keys', ContextKeys::class);
 
