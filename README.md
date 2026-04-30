@@ -113,6 +113,19 @@ use App\Auth\CustomContextKeys;
 $this->app->bind(HasContextKeys::class, CustomContextKeys::class);
 ```
 
+## Laravel Boost
+
+If your application uses [Laravel Boost](https://laravel.com/docs/13.x/boost), this package ships a third-party skill that helps AI agents wire `AuthenticateJob`, verify middleware group configuration, customize `HasContextKeys`, and debug missing auth context inside queued jobs.
+
+After requiring this package, install or refresh Boost resources in your application:
+
+```bash
+php artisan boost:install
+php artisan boost:update --discover
+```
+
+When Boost prompts for third-party packages, include `mrpunyapal/laravel-auth-jobs` so it can install the `laravel-auth-jobs-development` skill into your selected agent's skills directory.
+
 ## Use Cases
 
 - **Authorization**: Authorize actions in your job class based on the authenticated user's permissions.
