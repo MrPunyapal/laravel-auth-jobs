@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-auth-jobs` will be documented in this file.
 
+## 1.4.0 - 2026-05-03
+
+### What's Changed
+
+* Feat: laravel boost skill by @MrPunyapal in https://github.com/MrPunyapal/laravel-auth-jobs/pull/9
+
+**Full Changelog**: https://github.com/MrPunyapal/laravel-auth-jobs/compare/1.3.0...1.4.0
+
 ## 1.3.0 - laravel 13 - 2026-03-23
 
 ### What's Changed
