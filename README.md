@@ -1,5 +1,6 @@
 # This package allows you to access the authenticated user while processing jobs in the queue.
 
+[![Laravel Compatibility](https://badge.laravel.cloud/badge/mrpunyapal/laravel-auth-jobs)](https://packagist.org/packages/mrpunyapal/laravel-auth-jobs)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/mrpunyapal/laravel-auth-jobs.svg?style=flat-square)](https://packagist.org/packages/mrpunyapal/laravel-auth-jobs)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/mrpunyapal/laravel-auth-jobs/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/mrpunyapal/laravel-auth-jobs/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/mrpunyapal/laravel-auth-jobs.svg?style=flat-square)](https://packagist.org/packages/mrpunyapal/laravel-auth-jobs)
