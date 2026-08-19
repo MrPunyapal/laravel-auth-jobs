@@ -1,0 +1,27 @@
+# Configuration
+
+# Configuration The package ships a small config file at `config/auth-jobs.php`. ## Publishing the config ```bash php artisan vendor:publish --tag="auth-jobs-config" ``` ## Contents ```php
+
+---
+
+# Customizing Context Keys
+
+# Customizing Context Keys By default the package stores the authenticated user's ID and guard under fixed hidden context keys. If another package (or your own code) uses the same keys, you can define your own. ## Implement `HasContextKeys` Create a class that implements `MrPunyapal\LaravelAuthJobs\Contracts\HasContextKeys`: ```php
+
+---
+
+# Installation
+
+# Installation ## Requirements - PHP `^8.3`, `^8.4`, or `^8.5` - Laravel 12 or 13 ## Install the package ```bash composer require mrpunyapal/laravel-auth-jobs ``` The service provider is registered automatically through Laravel's package discovery — no manual registration needed. ## Publish the config file Publishing the config is optional (sensible defaults are used otherwise). To publish it: ```bash php artisan vendor:publish --tag="auth-jobs-config" ``` This copies the package config to `config/auth-jobs.php`. ## Laravel Boost The package ships a Laravel Boost skill that helps AI agents wire `AuthenticateJob`, verify middleware group configuration, customize `HasContextKeys`, and debug missing auth context inside queued jobs. In a Laravel application that has `laravel/boost` installed, add this package and then discover or refresh the packaged skill: ```bash php artisan boost:install php artisan boost:update --discover ``` ## Verify the installation Register the HTTP middleware for the groups in the config and confirm it is applied: ```bash php artisan about ``` Then dispatch a queued job and confirm `auth()->user()` is resolved inside it. See [Usage](usage/) for a full example.
+
+---
+
+# Laravel Auth Jobs
+
+# Laravel Auth Jobs Laravel queue jobs run in a separate process, so `auth()->user()` is not available inside them. This package bridges that gap: it captures the authenticated user at request time and restores them right before the job's `handle()` method runs. ## How it works 1. **Capture** — the `AuthenticateJobs` HTTP middleware stores the authenticated user's ID and guard in Laravel's hidden context during the request. 2. **Serialize** — hidden context is automatically serialized together with every queued job. 3. **Restore** — the `AuthenticateJob` job middleware re-authenticates the user (`Auth::guard($guard)->onceUsingId($id)`) before the job processes. ## Features - Access `auth()->user()` and `Gate::authorize()` inside queued jobs - Both middlewares ship with the package — no manual wiring required - Middleware groups are configurable (`web`, `api`, ...) - Custom context keys via the `HasContextKeys` contract to avoid key collisions with other packages - Ships an optional Laravel Boost skill for AI agents ## Use cases - **Authorization** — authorize actions in a job based on the authenticated user's permissions - **User context** — read the user's data to perform user-specific operations - **Role-based processing** — branch job logic on the user's roles or permissions - **Personalization** — apply user preferences while the job runs - **Audit trail** — log the acting user for traceability and accountability ## Next steps - [Installation](installation/) — install the package in your Laravel app - [Configuration](configuration/) — middleware groups and context keys - [Usage](usage/) — jobs that can see the authenticated user - [Customizing context keys](custom-context-keys/) — avoid key collisions
+
+---
+
+# Usage
+
+# Usage The package provides two middleware that work together: | Middleware | Runs | What it does | | --- | --- | --- | | `MrPunyapal\LaravelAuthJobs\Http\Middleware\AuthenticateJobs` | HTTP request (web, api, ...) | Stores the authenticated user's ID and guard in hidden context | | `MrPunyapal\LaravelAuthJobs\Jobs\Middleware\AuthenticateJob` | Before the job's `handle()` | Restores the user with `Auth::guard(...)->onceUsingId(...)` | The HTTP middleware is registered automatically for the groups in `middleware_groups` (see [Configuration](configuration/)). Hidden context is serialized with the queued job, so all you need to do is attach the job middleware. ## Job class ```php

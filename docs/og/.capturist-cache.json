@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "entries": {
+    "configuration.png": {
+      "hash": "658cb2ba63058cbcb090fac8737dcaa2dc5a9c5640f64d6e8be154d7638fd630",
+      "output": "configuration.png",
+      "label": "configuration"
+    },
+    "custom-context-keys.png": {
+      "hash": "5d3e777311e3dc27668e6173d8223f3f575ecf75cfca2f2b12f0dcd192c206ea",
+      "output": "custom-context-keys.png",
+      "label": "custom-context-keys"
+    },
+    "index.png": {
+      "hash": "f63de26a73e77a0bee75d07c5192a5daa34e45f3fbbf194c4b139bbb786f140a",
+      "output": "index.png",
+      "label": "index"
+    },
+    "installation.png": {
+      "hash": "4e388216b4d92a05b43b45304b356fdf6295734712b5b262b3b7639417660fc8",
+      "output": "installation.png",
+      "label": "installation"
+    },
+    "usage.png": {
+      "hash": "5c4861ed1b625d286d97f7d4363c8293848b5cb696941e2c473681557bd381d6",
+      "output": "usage.png",
+      "label": "usage"
+    }
+  }
+}
