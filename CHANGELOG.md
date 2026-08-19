@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-auth-jobs` will be documented in this file.
 
+## 2.0.0 - Laravel 11 dropped - 2026-08-19
+
+### What's Changed
+
+* fix: drop PHP 8.2 and Laravel 11 support (breaking) by @MrPunyapal in https://github.com/MrPunyapal/laravel-auth-jobs/pull/11
+* docs: add DocSmith documentation by @MrPunyapal in https://github.com/MrPunyapal/laravel-auth-jobs/pull/10
+
+**Full Changelog**: https://github.com/MrPunyapal/laravel-auth-jobs/compare/1.4.0...2.0.0
+
 ## 1.4.0 - 2026-05-03
 
 ### What's Changed
