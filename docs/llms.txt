@@ -1,0 +1,10 @@
+# Laravel Auth Jobs
+> Access the authenticated user while processing jobs in the queue.
+
+## Docs
+
+- https://mrpunyapal.github.io/laravel-auth-jobs/configuration: Configuration
+- https://mrpunyapal.github.io/laravel-auth-jobs/custom-context-keys: Customizing Context Keys
+- https://mrpunyapal.github.io/laravel-auth-jobs/installation: Installation
+- https://mrpunyapal.github.io/laravel-auth-jobs/: Laravel Auth Jobs
+- https://mrpunyapal.github.io/laravel-auth-jobs/usage: Usage
