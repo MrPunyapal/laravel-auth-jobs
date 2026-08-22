@@ -4,6 +4,9 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/mrpunyapal/laravel-auth-jobs.svg?style=flat-square)](https://packagist.org/packages/mrpunyapal/laravel-auth-jobs)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/mrpunyapal/laravel-auth-jobs/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/mrpunyapal/laravel-auth-jobs/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/mrpunyapal/laravel-auth-jobs.svg?style=flat-square)](https://packagist.org/packages/mrpunyapal/laravel-auth-jobs)
+[![Laravel Version Compatibility](https://badge.laravel.cloud/badge/mrpunyapal/laravel-auth-jobs?style=flat-square)](https://packagist.org/packages/mrpunyapal/laravel-auth-jobs)
+[![PHP Version Compatibility](https://badge.laravel.cloud/php-badge/mrpunyapal/laravel-auth-jobs?style=flat-square)](https://packagist.org/packages/mrpunyapal/laravel-auth-jobs)
+[![Laravel Boost Skill](https://badge.laravel.cloud/boost-badge.svg?style=flat-square)](https://laravel.com/docs/boost#third-party-package-skills)
 
 ## Installation
 
