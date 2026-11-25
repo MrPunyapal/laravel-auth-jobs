@@ -32,6 +32,11 @@ jobs:
           - laravel: 12.*
             php: 8.5
             testbench: ^10.8.0
+        exclude:
+          - laravel: 12.*
+            php: 8.6
+          - laravel: 13.*
+            php: 8.3
 
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
@@ -51,6 +56,14 @@ jobs:
         run: |
           echo "::add-matcher::${{ runner.tool_cache }}/php.json"
           echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+      - name: Use Pest 4 for Laravel 12
+        if: matrix.laravel == '12.*'
+        run: composer require --dev "pestphp/pest:^4.0" "pestphp/pest-plugin-laravel:^4.0" "pestphp/pest-plugin-arch:^4.0" "pestphp/pest-plugin-type-coverage:^4.0" --no-interaction --no-update
+
+      - name: Use Pest 5 for Laravel 13
+        if: matrix.laravel == '13.*'
+        run: composer require --dev "pestphp/pest:^5.0" "pestphp/pest-plugin-laravel:^5.0" "pestphp/pest-plugin-arch:^5.0" "pestphp/pest-plugin-type-coverage:^5.0" --no-interaction --no-update
 
       - name: Install dependencies
         run: |
