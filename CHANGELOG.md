@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-auth-jobs` will be documented in this file.
 
+## 2.0.1 - 2026-11-25
+
+### What's Changed
+
+- Verify PHP 8.6 compatibility with Laravel 13 on Linux and Windows.
+
+**Full Changelog**: https://github.com/MrPunyapal/laravel-auth-jobs/compare/2.0.0...2.0.1
+
 ## 2.0.0 - Laravel 11 dropped - 2026-08-19
 
 ### What's Changed
